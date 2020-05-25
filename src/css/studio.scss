@@ -1,0 +1,32 @@
+body {
+	padding-top: 64px;
+	
+	div {
+		display: block;
+	}
+	
+	.no-margin li:not(:last-child) {
+		margin-bottom: 1.5rem;
+		
+		& > .title, & > .subtitle, & > .image {
+			margin: 1.1rem 0 !important;
+		}
+	}
+	
+	.full-width {
+		width: 100%;
+	}
+	
+	.card {
+		transition: transform .3s cubic-bezier(0,.8,.4,1.8);
+		
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	
+	.title, .subtitle, p {
+		word-break: keep-all;
+	}
+	
+}

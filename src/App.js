@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import ProductListPage from './page/ProductListPage.jsx';
 
-function App() {
+const App = () => {
+  const a = 'lorem10';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <Switch>
+        <Route exact path="/">
+          Hello React!
+        </Route>
 
+        {/* <Route exact path="/:depart([가-힣]{1,8}[지방법원])/:caseNum(20[0-3][0-9][0-9]{10})/:productNum([0-9])"> */}
+        {/*  상품 상세 */}
+        {/* </Route> */}
+
+        <Route path="/:searchedText([가-힣A-Z0-9 ]*[^지방법원])" component={ProductListPage} />
+
+        <Route path="*">
+          404 Not Found
+        </Route>
+      </Switch>
+    </>
+  );
+};
 export default App;
