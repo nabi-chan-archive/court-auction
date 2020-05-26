@@ -6,7 +6,7 @@ function parseHTML(textHTML) {
 }
 
 function trim(text) {
-  return text.replace(/^[\s]|[\s]$/g, '');
+  return text.replace(/^[\s][\s]*|[\s]*[\s]$/g, '');
 }
 
 function clearSpace(text) {
