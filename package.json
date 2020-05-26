@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "courtauction",
   "version": "0.1.0",
   "proxy": "http://www.courtauction.go.kr",
   "private": true,
