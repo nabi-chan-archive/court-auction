@@ -4,7 +4,7 @@ import classNames from 'classnames';
 const Figure = (props) => {
   const {
     children,
-    size = 150,
+    size,
     ratio = [],
   } = props;
 
