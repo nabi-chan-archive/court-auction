@@ -96,7 +96,8 @@ const ProductList = (props) => {
         product: {
           info: rowTemp
             .match(/\[[a-zA-Z가-힣0-9 ,+\-=()]*]/g)[0]
-            .replace(/^\[|]$/g, ''),
+            .replace(/^\[|]$/g, '')
+            .replace(/[0-9,]*원/g, ''),
           saleDate: rowTemp.match(date)[0],
         },
         depart: {
