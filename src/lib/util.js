@@ -30,7 +30,7 @@ function encodeText(text) {
 function getRemaingTime(target) {
   const remaing = moment(target, 'YYYY.MM.DD')
     .fromNow(true)
-    .replace(/[a-z]{3,4}| /g, '');
+    .replace(/[a-z]{3,5}| /g, '');
 
   switch (remaing) {
     case 'a': return '내일';
