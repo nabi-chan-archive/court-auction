@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../../module/Card/Card';
 import CardContent from '../../module/Card/CardContent';
 import Content from '../../module/Elements/Content';
@@ -15,7 +16,7 @@ const ProductItem = (props) => {
 
   return (
     <Column width={4}>
-      <a href="/#">
+      <Link to={`${data.link.depart}/${data.link.uniqueKey}/${data.link.objectNum}`}>
         <Card>
           <CardContent>
             <Content size="small">
@@ -30,7 +31,7 @@ const ProductItem = (props) => {
             </Content>
           </CardContent>
         </Card>
-      </a>
+      </Link>
     </Column>
   );
 };
