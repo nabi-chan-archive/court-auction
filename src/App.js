@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import ProductListPage from './page/ProductListPage.jsx';
 
-const App = () => {
-  const a = 'lorem10';
-  return (
+const App = () =>
+  // const a = 'lorem10';
+  // return (
+  (
     <>
       <Switch>
         <Route exact path="/">
@@ -23,5 +24,4 @@ const App = () => {
       </Switch>
     </>
   );
-};
 export default App;

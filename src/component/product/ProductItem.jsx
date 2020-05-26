@@ -12,8 +12,6 @@ const ProductItem = (props) => {
     data,
   } = props;
 
-  console.log(data);
-
   return (
     <Column width={4}>
       <Link to={`${data.link.depart}/${data.link.uniqueKey}/${data.link.objectNum}`}>
