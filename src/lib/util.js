@@ -30,13 +30,14 @@ function encodeText(text) {
 function getRemaingTime(target) {
   const remaing = moment(target, 'YYYY.MM.DD')
     .fromNow(true)
-    .replace(/[a-z]{3,5}| /g, '');
+    .replace(/ (days|day)/g, '일 후')
+    .replace(/ (hours|hour)/g, '시간 후');
 
   switch (remaing) {
-    case 'a': return '내일';
-    case '7': return '일주일 후';
-    case '999': return '비둘기야 먹자~';
-    default: return `${remaing}일 후`;
+    case 'a일 후': return '내일';
+    case '7일 후': return '다음주';
+    case '14일 후': return '2주 후';
+    default: return `${remaing}`;
   }
 }
 
