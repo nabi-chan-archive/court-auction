@@ -91,7 +91,7 @@ const ProductList = (props) => {
             .replace(/<a[a-zA-Z가-힣0-9="'#,;() ]*>/g, '')
             .replace(/<\/a>/g, '')
             .replace(/,/g, ', '),
-          type: rowTemp.match(/(공장|동식물사육재배장|소매점|도매점|가정집|사무실|서비스제공시설|보관시설)|(물류)/g)[0],
+          type: rowTemp.match(/(공장|동식물사육재배장|소매점|도매점|가정집|사무실|서비스제공시설|보관시설)|(물류|지방법원|지법원)/g)[0],
         },
         product: {
           info: rowTemp
