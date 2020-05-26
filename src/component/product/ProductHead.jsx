@@ -23,7 +23,7 @@ const ProductHead = (props) => {
   return (
     <Hero size="medium" color={localState}>
       <HeroBody>
-        <Title>{searched}에 대한 검색 결과</Title>
+        <Title size={2}>{searched}에 대한 검색 결과</Title>
         <Title subtitle size={5}>{subTitleText}</Title>
       </HeroBody>
     </Hero>
