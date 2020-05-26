@@ -26,7 +26,7 @@ const ProductItem = (props) => {
               <ul>
                 <li>담당부서: {data.depart.name} (<a href={`tel:${data.depart.phone}`}>{data.depart.phone}</a>)</li>
                 <li>최저매각가: {numberWithCommas(data.cost.lowestBid)}원</li>
-                <li>남은시간: {getRemaingTime(data.product.saleDate)}</li>
+                <li>매각일: {getRemaingTime(data.product.saleDate)}</li>
               </ul>
             </Content>
           </CardContent>
