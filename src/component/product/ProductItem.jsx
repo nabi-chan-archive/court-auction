@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../../module/Card/Card';
 import CardContent from '../../module/Card/CardContent';
 import Content from '../../module/Elements/Content';
@@ -11,11 +12,9 @@ const ProductItem = (props) => {
     data,
   } = props;
 
-  console.log(data);
-
   return (
     <Column width={4}>
-      <a href="/#">
+      <Link to={`${data.link.depart}/${data.link.uniqueKey}/${data.link.objectNum}`}>
         <Card>
           <CardContent>
             <Content size="small">
@@ -23,14 +22,14 @@ const ProductItem = (props) => {
               <Title subtitle size={6}>{data.incidentNumber}</Title>
 
               <ul>
-                <li>담당부서: {data.depart.name} (<a href={`tel:${data.depart.phone}`}>{data.depart.phone}</a>)</li>
+                <li>담당부서: {data.depart.name} ({data.depart.phone})</li>
                 <li>최저매각가: {numberWithCommas(data.cost.lowestBid)}원</li>
-                <li>남은시간: {getRemaingTime(data.product.saleDate)}</li>
+                <li>매각일: {getRemaingTime(data.product.saleDate)}</li>
               </ul>
             </Content>
           </CardContent>
         </Card>
-      </a>
+      </Link>
     </Column>
   );
 };
