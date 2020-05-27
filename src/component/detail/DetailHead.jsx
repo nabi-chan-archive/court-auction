@@ -10,7 +10,7 @@ import {
 } from '../../lib/util';
 
 const DetailHead = (props) => {
-  const [detailHeadState, setDetailHeadState] = useState({
+  const inital = {
     incident: {
       number: '',
       competition: '',
@@ -31,8 +31,11 @@ const DetailHead = (props) => {
       type: '',
     },
     notice: '',
-  });
+  };
+
+  const [detailHeadState, setDetailHeadState] = useState(inital);
   const { caseTable, infoHTML, state } = props;
+  const isLoading = detailHeadState === inital;
 
   useEffect(() => {
     if (!caseTable || !infoHTML) {
@@ -88,7 +91,7 @@ const DetailHead = (props) => {
       <HeroBody>
         <Content size="small">
           <Title size={3}>
-            {detailHeadState.incident.number}
+            {isLoading ? '정보 불러오는중...' : detailHeadState.incident.number}
           </Title>
           {detailHeadState.incident.competition && (
           <Title subtitle size={6}>
@@ -98,13 +101,17 @@ const DetailHead = (props) => {
         </Content>
 
         <Content>
-          <Columns>
+          {!isLoading && (
             <Column>
               <ul>
                 <li>
-                  담당 : {detailHeadState.depart.name} {detailHeadState.depart.manager} (<a href={`tel:${detailHeadState.depart.phone}`}>{detailHeadState.depart.phone}</a>)
+                  담당 : {detailHeadState.depart.name} {detailHeadState.depart.manager} (<a
+                    href={`tel:${detailHeadState.depart.phone}`}
+                  >{detailHeadState.depart.phone}
+                  </a>)
                 </li>
-                <li>매각날짜 : {detailHeadState.incident.saleDate} ({getRemaingTime(detailHeadState.incident.saleDate)})</li>
+                <li>매각날짜 : {detailHeadState.incident.saleDate} ({getRemaingTime(detailHeadState.incident.saleDate)})
+                </li>
                 <li>감정 평가액 : {numberWithCommas(detailHeadState.cost.appraisal)}원</li>
                 <li>최저매각가 : {numberWithCommas(detailHeadState.cost.lowestBid)}원</li>
                 <li>공고유형 : {detailHeadState.incident.type}</li>
@@ -118,6 +125,7 @@ const DetailHead = (props) => {
               {detailHeadState.place.address}
             </Column>
           </Columns>
+          )}
         </Content>
       </HeroBody>
     </Hero>
