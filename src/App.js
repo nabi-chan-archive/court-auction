@@ -21,7 +21,11 @@ const App = () => {
           Hello React!
         </Route>
 
-        <Route exact path="/:depart([가-힣]{1,8}[지방법원])/:caseNum(20[0-3][0-9][0-9]{10})/:productNum([0-9])" component={ProductDetailPage} />
+        <Route
+          exact
+          path="/:depart([가-힣]{1,8}[지방법원])/:caseNum(20[0-3][0-9][0-9]{10})/:productNum([0-9])"
+          component={ProductDetailPage}
+        />
 
         <Route path="/:searchedText([가-힣A-Z0-9 ]*[^지방법원])" component={ProductListPage} />
 
