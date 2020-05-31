@@ -1,12 +1,20 @@
 import React from 'react';
+import moment from 'moment';
 import { Switch, Route } from 'react-router-dom';
+import codeSplit from './lib/codeSplit';
 import ProductListPage from './page/ProductListPage.jsx';
 import ProductDetailPage from './page/ProductDetailPage';
 
-const App = () =>
-  // const a = 'lorem10';
-  // return (
-  (
+const App = () => {
+  const isTimeOut = moment().format('hh') <= 6
+      && moment().format('hh') >= 1;
+  const TimeOutPage = codeSplit(() => import('./page/TimeOutPage'));
+
+  if (isTimeOut) {
+    return <TimeOutPage />;
+  }
+
+  return (
     <>
       <Switch>
         <Route exact path="/">
@@ -23,4 +31,5 @@ const App = () =>
       </Switch>
     </>
   );
+};
 export default App;
