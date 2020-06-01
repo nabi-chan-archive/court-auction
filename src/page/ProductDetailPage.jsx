@@ -19,7 +19,7 @@ const ProductDetailPage = () => {
     data: {},
   });
 
-  const frmData = `${REACT_APP_PRODUCT_DETAIL_DEPART}=${encodeText(clearSpace(depart))}&${REACT_APP_PRODUCT_DETAIL_CASENUM}=${caseNum}&${REACT_APP_PRODUCT_DETAIL_PRODUCTNUM}=${productNum}&page=default100`;
+  const frmData = `${REACT_APP_PRODUCT_DETAIL_DEPART}=${encodeText(clearSpace(depart))}&${REACT_APP_PRODUCT_DETAIL_CASENUM}=${caseNum}&${REACT_APP_PRODUCT_DETAIL_PRODUCTNUM}=${productNum}&page=default40`;
 
   useEffect(() => {
     Axios.post(REACT_APP_PRODUCT_DETAIL_ENDPOINT, frmData, {})
