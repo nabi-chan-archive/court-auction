@@ -102,6 +102,7 @@ const DetailHead = (props) => {
 
         <Content>
           {!isLoading && (
+          <Columns gap={7}>
             <Column>
               <ul>
                 <li>
