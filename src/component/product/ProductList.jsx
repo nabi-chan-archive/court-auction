@@ -42,6 +42,13 @@ const ProductList = (props) => {
     const uniqueKey = new RegExp(/(20[0-3][0-9])([0-9]{10,13})/g);
     const detailFunc = new RegExp(/detailSrchForDongsan\('([가-힣]{2,4}(지방법원|지원))', '(20[0-3][0-9])([0-9]{10,13})', '[0-9]{1,3}'\)/g);
 
+    const typeMatch = (rowTemp) => {
+      const match = rowTemp.match(/(공장|동식물사육재배장|소매점|도매점|가정집|사무실|서비스제공시설|보관시설)/g);
+
+      return !match ? '' : match[0];
+    };
+
+    // eslint-disable-next-line array-callback-return
     htmls.map((html) => {
       const tableHTML = parseHTML(html)
         .getElementsByClassName('Ltbl_list')[0];
@@ -97,7 +104,7 @@ const ProductList = (props) => {
               .replace(/<a[a-zA-Z가-힣0-9="'#,;() ]*>/g, '')
               .replace(/<\/a>/g, '')
               .replace(/,/g, ', '),
-            type: rowTemp.match(/(공장|동식물사육재배장|소매점|도매점|가정집|사무실|서비스제공시설|보관시설)|(물류|지방법원|지법원)/g)[0],
+            type: typeMatch(rowTemp),
           },
           product: {
             info: rowTemp
