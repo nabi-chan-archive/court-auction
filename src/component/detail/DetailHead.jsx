@@ -5,6 +5,7 @@ import HeroBody from '../../module/Hero/HeroBody';
 import Content from '../../module/Elements/Content';
 import Columns from '../../module/Column/Columns';
 import Column from '../../module/Column/Column';
+import KakaoMap from '../../module/KakaoMap';
 import {
   clearSpace, getRemaingTime, numberWithCommas, trim,
 } from '../../lib/util';
@@ -75,7 +76,6 @@ const DetailHead = (props) => {
         address: infoTable.rows[1].cells[3].innerText
           .replace(/[\t\n]/g, '')
           .replace(/ \)/g, ')')
-          .replace(/[^-][0-9]{2,3}/g, ' $&')
           .replace(/[ ]{2}/g, '')
           .replace(/ ,/g, ', '),
         type: trim(infoTable.rows[2].cells[3].innerText),
@@ -120,10 +120,7 @@ const DetailHead = (props) => {
               </ul>
             </Column>
             <Column>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias asperiores atque dolorem, ea enim eos exercitationem explicabo facere fuga fugiat libero magni, necessitatibus non, odit placeat quae quam quod saepe sequi sit soluta tenetur veniam vero vitae. Accusamus ad aperiam asperiores consectetur corporis cumque deserunt dignissimos doloremque doloribus ducimus, eaque eos facilis hic id impedit ipsum iste labore laboriosam maxime molestias nam natus nihil nisi odio odit porro quas quo quod ratione reprehenderit sint ullam vel voluptatem? Consectetur dolorum earum eligendi est facere fugiat labore magni necessitatibus nihil, obcaecati, quis veniam, voluptas voluptatum. Consequatur deleniti iure minima molestiae totam!
-              </div>
-              {detailHeadState.place.address}
+              <KakaoMap addr={detailHeadState.place.address} />
             </Column>
           </Columns>
           )}
